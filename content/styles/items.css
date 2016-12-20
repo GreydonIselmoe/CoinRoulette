@@ -1,0 +1,28 @@
+.item {
+  width: 210px;
+  height: 210px;
+  margin: 10px;
+  background-position: center center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.img1 {
+  background-image: url('imgs/slot_icons/goldenseven.png');
+}
+.img2 {
+  background-image: url('imgs/slot_icons/diamond.png');
+}
+.img3 {
+  background-image: url('imgs/slot_icons/emerald.png');
+}
+.img4 {
+  background-image: url('imgs/slot_icons/cherry.png');
+}
+.img5 {
+  background-image: url('imgs/slot_icons/grape.png');
+}
+.img6 {
+  background-image: url('imgs/slot_icons/goldbar.png');
+}
+
+

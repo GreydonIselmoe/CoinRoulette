@@ -1,0 +1,923 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+}
+@font-face {
+    font-family: casino;
+    src: url('fonts/BebasNeue.woff');
+}
+body {
+  background-image: url('../images/sky.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+
+}
+.all {
+  width: 100%;
+}
+.leftblock {
+  width: 0;
+  float: left;
+  display: none;
+  position: fixed;
+  margin-top: 60px;
+  background-color: rgba(255,255,255,0.8);
+  padding: 10px 0;
+  border-right: 2px solid rgba(0,0,0,0.4);
+  overflow: hidden;
+}
+.page {
+  float: right;
+  margin-top: 60px;
+  width: 100%;
+}
+.leftCon {
+  display: none;
+}
+.leftCon .content {
+  position: relative;
+}
+.leftCon .footer {
+  -webkit-box-shadow: 0 0 5px 0 rgba(0,0,0,0.5);
+  -moz-box-shadow: 0 0 5px 0 rgba(0,0,0,0.5);
+  box-shadow: 0 0 5px 0 rgba(0,0,0,0.5);
+  margin: -10px;
+  margin-top: 3px;
+  padding: 10px 10px;
+  margin-bottom: -20px;
+}
+.closeLeft,.closeLeft:focus,.closeLeft:active {
+  color: rgba(0,0,0,0.4);
+  position: absolute;
+  margin: 8px;
+  margin-top: -33px;
+  font-size: 20px;
+  display: none;
+
+}
+.closeLeft:hover {
+  color: rgba(0,0,0,0.6);
+}
+
+.heading {
+  font-size: 15px;
+  font-weight: bold;
+  padding: 10px;
+  margin: -10px;
+  margin-bottom: 3px;
+  -webkit-box-shadow: 0 0 5px 0 rgba(0,0,0,0.5);
+  -moz-box-shadow: 0 0 5px 0 rgba(0,0,0,0.5);
+  box-shadow: 0 0 5px 0 rgba(0,0,0,0.5);
+}
+
+
+.chat-input {
+  width: 100%;
+}
+
+.chat-message {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  margin: 0 5px;
+  margin-bottom: 10px;
+  padding: 1px;
+  padding-top: 0;
+  overflow: hidden;
+  background-color: rgba(0,0,0,0.4);
+}
+.chat-message:first-of-type{
+  margin-top: 10px;
+}
+.chat-m-user {
+  font-size: 12px;
+  float: left;
+  padding: 0 10px;
+  color: white;
+  font-weight: bold;
+  width: 70%;
+  height: 30px;
+  line-height: 30px;
+}
+.chat-m-time {
+  float: right;
+  font-size: 10px;
+  padding: 0 10px;
+  color: rgb(200,200,200);
+  width: 30%;
+  text-align: right;
+  height: 30px;
+  line-height: 30px;
+}
+.chat-m-text {
+  padding: 9px;
+  display: block;
+  font-size: 12px;
+  clear: both;
+  background-color: rgba(255,255,255,0.9);
+  -webkit-border-bottom-right-radius: 3px;
+  -webkit-border-bottom-left-radius: 3px;
+  -moz-border-radius-bottomright: 3px;
+  -moz-border-radius-bottomleft: 3px;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+.stats {
+  text-align: center;
+  margin-top: 100px;
+}
+.st-switches a{
+  display: inline-block;
+  margin-right: 5px;
+  height: 60px;
+  line-height: 60px;
+  width: 150px;
+  -webkit-border-top-left-radius: 3px;
+  -webkit-border-top-right-radius: 3px;
+  -moz-border-radius-topleft: 3px;
+  -moz-border-radius-topright: 3px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  background-color: rgba(0,0,0,0.4);
+  color: #fefefe;
+  text-decoration: none;
+}
+.st-switches a:last-child {
+  margin-right: 0;
+}
+.st-switches a:focus,.st-switches a:active  {
+  color: #fff;
+}
+.st-switches a.active {
+  background-color: rgba(0,0,0,0.6);
+}
+.st-switches a.rulesB {
+  position: absolute;
+  display: block;
+  float: left;
+  margin-left: 10px;
+  margin-top: 10px;
+  width: 45px;
+  height: 45px;
+  font-size: 45px;
+  background: none;
+  color: rgba(0,0,0,0.6);
+}
+.st-switches a.rulesB span {
+  position: relative;
+  top: -3px;
+}
+.st-switches a.rulesB:hover {
+  color: rgba(0,0,0,0.8);
+}
+.st-switchline {
+  height: 40px;
+  background-color: rgba(0,0,0,0.6);
+}
+.st-stats {
+  width: 100%;
+  background-color: rgba(255,255,255,0.3);
+  padding-top: 40px;
+}
+.st-stats table {
+  margin-top: -80px;
+  width: 948px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.st-stats table thead {
+  width: 998px;
+  margin-left: auto;
+  margin-right: auto;
+  color: white;
+  font-weight: bold;
+}
+.st-stats table thead tr {
+  height: 40px;
+}
+.st-stats table tbody {
+  display: none;
+}
+.st-stats table tbody tr {
+  height: 40px;
+  color: black;
+}
+.st-stats table tbody tr td:first-child {
+  -webkit-border-top-left-radius: 3px;
+  -webkit-border-bottom-left-radius: 3px;
+  -moz-border-radius-topleft: 3px;
+  -moz-border-radius-bottomleft: 3px;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+.st-stats table tbody tr td:last-child {
+  -webkit-border-top-right-radius: 3px;
+  -webkit-border-bottom-right-radius: 3px;
+  -moz-border-radius-topright: 3px;
+  -moz-border-radius-bottomright: 3px;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+.st-stats table tbody tr:nth-child(odd) td {
+  background-color: inherit;
+}
+.st-stats table tbody tr:nth-child(even) td {
+  background-color: rgba(0,0,0,0.1);
+}
+.st-stats table tbody.reversed tr:nth-child(odd) td {
+  background-color: rgba(0,0,0,0.1);
+}
+.st-stats table tbody.reversed tr:nth-child(even) td {
+  background-color: inherit;
+}
+.waitingStats {
+  display: none;
+}
+.profit-loss {
+  color: #b81900;
+}
+.profit-win {
+  color: #3BAC23;
+}
+.profit-neutral .st-plus {
+  visibility: hidden;
+}
+._heading._hfirst {
+  padding-top: 20px;
+}
+
+.btn-sm{
+  padding: 6.5px 10px;
+}
+.leftact {
+  width: 20%;
+  display: block;
+  float: right;
+  border-left: none;
+  -webkit-border-top-left-radius: 0px;
+  -webkit-border-bottom-left-radius: 0px;
+  -moz-border-top-left-radius: 0px;
+  -moz-border-bottom-left-radius: 0px;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+.statsResIcon {
+  width: 20px;
+  height: 20px;
+  background-size: 100%;
+  display: inline-block;
+  position: relative;
+  top: 5px;
+}
+._topNone {
+  top: 0;
+}
+.rightact {
+  -webkit-border-top-right-radius: 0px;
+  -webkit-border-bottom-right-radius: 0px;
+  -moz-border-top-right-radius: 0px;
+  -moz-border-bottom-right-radius: 0px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.captchadiv {
+  width: 238px;
+  height: 62px;
+  display: block;
+  margin-bottom: 10px;
+}
+.captchadiv img {
+  width: 226px;
+  height: 50px;
+}
+.captchaInput {
+  text-transform: uppercase;
+}
+
+.form-group {
+  margin-bottom: 0px;
+}
+._heading {
+  padding: 20px 0px 15px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+
+input.l {
+  width: 410px;
+  background: #fefefe;
+  border: 1px solid #bbb;
+  font-family: "Lucida Grande", Verdana, sans-serif;
+  font-size: 12px;
+  color: #333;
+  padding: 7px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  outline: none;
+  vertical-align: middle;
+  width: 250px;
+}
+#menu {
+  position: fixed;
+  top: 0;
+  height: 60px;
+  width: 100%;
+  background-color: rgba(0,0,0,0.5);
+  line-height: 60px;
+  z-index: 999;
+  padding: 0px 20px;
+}
+.logo {
+  float: left;
+  line-height: 60px;
+  color: #fff;
+}
+.logo a {
+  text-decoration: none;
+  color: #fff;
+  padding: 10px 0;
+  padding-left: 60px;
+  font-size: 18px;
+}
+.nav-left{
+  float: left;
+}
+.nav-right{
+  float: right;
+}
+#menu a {
+  padding: 0 10px;
+  text-decoration: none;
+  color: #fff;
+}
+footer a, footer a:hover, footer a:focus{
+  color: #fff;
+}
+#menu .btn-primary{
+  padding: 8px 20px;
+}
+
+.bal_main{
+  float: left;
+  line-height: 15px;
+  padding: 13px 15px;
+  color: #fff;
+}
+.bal_title{
+  text-transform: uppercase;
+  font-size: 10px;
+  text-align: center;
+  width: 100%;
+}
+.bal_status {
+  font-size: 14px;
+  margin-top: 3px;
+  border-top: 1px dotted #fff;
+}
+.leftCon{
+  display: none;
+}
+#leftblock {
+  width: 0;
+  float: left;
+  position: fixed;
+  height: 100%;
+  background-color: rgba(255,255,255,0.8);
+  overflow: hidden;
+  transition: width 1s ease-out;
+  text-align: left;
+}
+.leftbuttons{
+  position: absolute;
+}
+.leftbuttons button {
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  background-color: rgba(0,0,0,0.4);
+  display: block;
+  border: none;
+  color: #fefefe;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+.leftbuttons button:hover {
+  color: #fff;
+  background-color: rgba(0,0,0,0.6);
+  border-bottom: 1px solid rgba(0,0,0,0);
+}
+#leftblock .content {
+  padding: 10px;
+  width: 250px;
+}
+#leftblock .footer {
+  -webkit-box-shadow: 0 0 5px 0 rgba(0,0,0,0.5);
+  -moz-box-shadow: 0 0 5px 0 rgba(0,0,0,0.5);
+  box-shadow: 0 0 5px 0 rgba(0,0,0,0.5);
+  margin-top: 3px;
+  padding: 10px 10px;
+  margin-bottom: -20px;
+  position: fixed;
+  bottom: 20px;
+  width: 250px;
+}
+#leftblock .heading {
+  font-size: 15px;
+  font-weight: bold;
+  color: #000;
+  padding: 10px;
+  margin-bottom: 3px;
+  -webkit-box-shadow: 0 0 5px 0 rgba(0,0,0,0.5);
+  -moz-box-shadow: 0 0 5px 0 rgba(0,0,0,0.5);
+  box-shadow: 0 0 5px 0 rgba(0,0,0,0.5);
+  width: 250px;
+}
+.leftbuttons button.active {
+  color: #fff;
+  background-color: rgba(0,0,0,0.6);
+  border-bottom: 1px solid rgba(0,0,0,0);
+}
+.leftbuttons button:first-child {
+  -webkit-border-top-right-radius: 3px;
+  -moz-border-radius-topright: 3px;
+  border-top-right-radius: 3px;
+}
+.leftbuttons button.last-child {
+  -webkit-border-bottom-right-radius: 3px;
+  -moz-border-radius-bottomright: 3px;
+  border-bottom-right-radius: 3px;
+  border-bottom: none;
+}
+.leftbuttons button.last-child:hover {
+  border-bottom: none;
+}
+.modal-dialog {
+  width: 600px;
+  margin: 30px auto;
+  text-align: left;
+}
+.modal-header {
+  padding: 15px;
+  border-bottom: 1px solid #e5e5e5;
+  min-height: 16.42857143px;
+  text-align: left;
+}
+.modal .close {
+  margin-top: 0px;
+}
+.alert.alert-infoo {
+  background-color: white;
+  color: #515151;
+}
+.panel-body{
+  word-wrap: break-word;
+}
+#roulette{
+  transition: margin 1s ease-out;
+}
+#roulette #game{
+  font-weight: 500;
+  padding: 20px;
+  width: 1100px;
+  height: 620px;
+  color: #fff;
+  margin: 50px auto 70px;
+  background-image: url("../images/bckgrnd.jpg");
+  border: 5px solid #fadf23;
+  padding: 15px;
+  border-radius: 50px;
+}
+#roulette #game .board {
+  float: left;
+  font-family: Domine,serif;
+  color: gold;
+  font-size: 18px;
+  position: relative;
+  width: 700px;
+  height: 250px;
+  margin-top: 30px;
+}
+#roulette #game .board .board-cell {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  border-right: 1px solid gold;
+  text-shadow: -1px -1px #333;
+  padding: 0px 15px;
+  cursor: pointer;
+  text-align: center;
+}
+
+#roulette #game .board .board-cell .number{
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  padding-right: 11px;
+  line-height: 10px;
+  border-radius: 15px;
+  margin-top: 4px;
+  height: 40px;
+  width: 30px;
+  font-size: 24px;
+  margin-left: -5px;
+}
+#roulette #game .board .red-cell {
+  background: #B22222 none repeat scroll 0% 0%;
+}
+#roulette #game .board .black-cell {
+  background: rgb(30,30,30) none repeat scroll 0% 0%;
+}
+#roulette #game .board .bet-0 .number{
+  background: rgba(0,40,100,0.9);
+  border: 2px solid;
+  padding-right: 9px;
+}
+#roulette #game .board .highlight {
+  box-shadow: inset 0 0 40px rgba(255,255,0,.9);
+}
+#roulette #game .board .big-cell {
+  position: absolute;
+  height: 50px;
+  line-height: 50px;
+  width: 100px;
+  margin-left: -3px;
+  border-left: 3px solid gold;
+  border-bottom: 3px solid gold;
+  border-top: 0;
+  text-shadow: -1px -1px #333;
+  padding: 0px 15px;
+  cursor: pointer;
+}
+#roulette #game .board .small-cell {
+  padding: 0px 15px;
+  cursor: pointer;
+  text-align: center;
+}
+#roulette #game .board .bcol-1 {
+  left: 50px;
+}
+#roulette #game .board .bcol-2 {
+  left: 100px;
+}
+#roulette #game .board .bcol-3 {
+  left: 150px;
+}
+#roulette #game .board .bcol-4 {
+  left: 200px;
+}
+#roulette #game .board .bcol-5 {
+  left: 250px;
+}
+#roulette #game .board .bcol-6 {
+  left: 300px;
+}
+#roulette #game .board .bcol-7 {
+  left: 350px;
+}
+#roulette #game .board .bcol-8 {
+  left: 400px;
+}
+#roulette #game .board .bcol-9 {
+  left: 450px;
+}
+#roulette #game .board .bcol-10 {
+  left: 500px;
+}
+#roulette #game .board .bcol-11 {
+  left: 550px;
+}
+#roulette #game .board .bcol-12 {
+  left: 600px;
+}
+#roulette #game .board .bcol-13 {
+  left: 650px;
+  border-left: 2px solid gold;
+  border-right: 3px solid gold;
+  width: 52px;
+}
+#roulette #game .board .brow-1 {
+  top: 0;
+  border-top: 3px solid gold;
+}
+#roulette #game .board .brow-2 {
+  top: 50px;
+  border-top: 1px solid gold;
+  border-bottom: 1px solid gold;
+}
+#roulette #game .board .brow-3 {
+  top: 100px;
+  border-bottom: 3px solid gold;
+}
+#roulette #game .board .brow-4 {
+  top: 150px;
+  height: 50px;
+  width: 200px;
+  margin-left: -3px;
+  line-height: 50px;
+  position: absolute;
+  border-left: 3px solid gold;
+  border-bottom: 3px solid gold;
+  text-shadow: -1px -1px #333;
+}
+#roulette #game .board .brow-5 {
+  top: 200px;
+}
+#roulette #game .board .chip {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  z-index: 2;
+  display: none;
+  background-size: cover;
+  text-align: center;
+  font-size: 10px;
+  line-height: 48px;
+}
+#roulette #game .board .board-cell .chip {
+  top: -1px;
+  left: 0px;
+}
+#roulette #game .board .small-cell .chip{
+  left: 73px;
+}
+#roulette #game .board .big-cell .chip{
+  left: 25px;
+}
+#roulette #game .board .corner-bet .chip {
+  left: -16px;
+  top: -16px;
+}
+#roulette #game .board .vertical-line-bet .chip {
+  top: -7px;
+  left: -16px;
+}
+#roulette #game .board .horizontal-line-bet .chip {
+  top: -16px;
+  left: -7px;
+}
+#roulette #game .board .bet-0 {
+  position: absolute;
+  border: 3px solid gold;
+  line-height: 150px;
+  width: 50px;
+  height: 150px;
+  left: 0;
+  top: 0;
+  text-shadow: -1px -1px #333;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  padding: 48px 12px;
+  background: #008000;
+}
+#roulette #game .board .bet-0 .chip {
+  top: 47px;
+  left: -3px;
+}
+#roulette #game .board .bet-1-18 {
+  border-bottom-left-radius: 5px;
+}
+#roulette #game .board .bet-19-36 {
+  border-right: 3px solid gold;
+  width: 105px;
+  border-bottom-right-radius: 5px;
+}
+#roulette #game .board .bet-r1 {
+  border-top-right-radius: 5px;
+}
+#roulette #game .board .bet-r3 {
+  border-bottom-right-radius: 5px;
+}
+#roulette #game .board .horizontal-line-bet {
+  width: 34px;
+  height: 16px;
+  position: absolute;
+  border: 0;
+  margin-top: -8px;
+  margin-left: 8px;
+}
+#roulette #game .board .vertical-line-bet {
+  position: absolute;
+  border: 0;
+  width: 16px;
+  height: 34px;
+  margin-top: 8px;
+  margin-left: -8px;
+}
+#roulette #game .board .corner-bet {
+  position: absolute;
+  border: 0;
+  width: 16px;
+  height: 16px;
+  margin-top: -8px;
+  margin-left: -8px;
+}
+#roulette #game .board .bet-3rd-12 {
+  border-right: 3px solid gold;
+  width: 205px;
+}
+.wheel{
+  padding: 0px;
+  float: left;
+  width: 320px;
+  height: 300px;
+  position: relative;
+}
+#wheel{
+  width: 300px;
+  height: 300px;
+  position: absolute;
+  top: 0px;
+  left: 10px;
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
+}
+#ball{
+  position: absolute;
+  top: 0px;
+  left: 10px;
+  width: 300px;
+  height: 300px;
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
+}
+.control{
+  float: left;
+  padding-left: 20px;
+}
+#roulette .chip-size {
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  line-height: 44px;
+  margin-left: 10px;
+}
+.bet-control:hover {
+  color: gold;
+  background: #4B0082;
+  border-color: gold;
+}
+.bet-control.disabled:hover{
+  color: inherit;
+  background: inherit;
+  border-color: inherit;
+  cursor: not-allowed;
+}
+#roulette .chip-size.selected-chip:hover {
+  border-color: gold;
+}
+#roulette .chip-size.selected-chip {
+  background: #4B0082;
+  color: gold;
+}
+.bet-control {
+  display: inline-block;
+  color: #d4d4d4;
+  border: 4px solid #dedede;
+  background: rgba(0,0,0,.2);
+  cursor: pointer;
+  text-align: center;
+}
+#roulette #game #history {
+  border-radius: 5px;
+  background: #000 url(../images/result2.png);
+  opacity: 0.7;
+  width: 375px;
+  text-align: right;
+  height: 50px;
+  border: 2px solid gold;
+  overflow: hidden;
+  float: left;
+}
+.bet-area{
+  color: #fff;
+  padding: 30px 0px;
+}
+.action-area .action-button {
+  display: inline-block;
+  width: 120px;
+  padding: 10px;
+  font-size: 16px;
+  margin: 0 3px;
+  border-radius: 8px;
+}
+.action-area .action-button:first-of-type{
+  margin-left: 0;
+}
+.action-area .action-button:last-of-type{
+  margin-right: 0;
+}
+@keyframes blink {
+  50% { opacity: 0.2; }
+}
+#roulette #game #history #result {
+  font-size: 24px;
+  text-align: center;
+  height: 50px;
+  line-height: 48px;
+}
+
+#roulette #game #history #result-number {
+  float: right;
+  width: 50px;
+  height: 48px;
+  border-left: 1px solid #333;
+  font-size: 24px;
+  text-align: center;
+  line-height: 50px;
+  margin-left: 5px;
+}
+#roulette #game #history #result-number.yellow, #roulette #game #history #result-number.green {
+  margin-top: 0;
+}
+#roulette #game #history .green {
+  color: #00cd3c;
+}
+#roulette #game #history .red {
+  color: #BF0017;
+}
+#roulette #game #history .yellow {
+  color: #FAE400;
+  margin-top: 19px;
+}
+.horizontal-line-bet, .vertical-line-bet, .corner-bet{
+  cursor: pointer;
+}
+#roulette #game .board .chip-10{
+  background-image: url(../images/10.png);
+}
+#roulette #game .board .chip-100{
+  background-image: url(../images/100.png);
+}
+#roulette #game .board .chip-1000{
+  background-image: url(../images/1k.png);
+}
+#roulette #game .board .chip-10000{
+  background-image: url(../images/10k.png);
+}
+#roulette #game #mute{
+  background: no-repeat center;
+  background-image: url('../images/mute.png') ;
+  width: 34px;
+  height: 34px;
+  padding: 26px;
+  float: right;
+  opacity: 0.8;
+  cursor: pointer;
+  margin-left: 30px;
+  margin-right: 30px;
+}
+#roulette #game #mute:hover{
+  opacity: 1;
+}
+#roulette #game .board .brow-1 .win {
+  top: -2px;
+}
+#roulette #game .board .win {
+  width: 51px;
+  height: 50px;
+  background: rgba(250,228,0,.3);
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  border: 3px solid #FAE400;
+  z-index: 1;
+  box-shadow: 0 0 15px #fff;
+}
+#roulette #game .board .bet-0 .win {
+  height: 150px;
+  left: -3px;
+  width: 50px;
+  top: -3px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+#roulette #game #conversion-notice, #roulette #game #total{
+  padding: 3px 0px;
+  margin:bottom;
+  color: rgb(255, 255, 255);
+  font-size: 12px;
+}
+footer {
+  padding: 10px 0px;
+  background-color: rgba(255,255,255,0.3);
+  color: #fff;
+  text-align: center;
+}
+#roulette #game #conversion-notice{
+  padding-top: 50px;
+}
